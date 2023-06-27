@@ -107,7 +107,7 @@ class Bomb:
         self.rct.move_ip(self.vx, self.vy)
         screen.blit(self.img, self.rct)
 
-#
+
 class Beam:
     """
     こうかとんが放つビームに関するクラス
@@ -163,6 +163,8 @@ def main():
             if bomb.rct.colliderect(beam.rct):
                 bomb = None
                 beam = None
+                bird.change_img(6, screen)
+                pg.display.update()              
 
         key_lst = pg.key.get_pressed()
         bird.update(key_lst, screen)
